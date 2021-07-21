@@ -371,15 +371,18 @@ public class Character : MonoBehaviour
 
     public void RemoveBag()
     {
-        if (NumberOfBags-- <= 16)
+        if (NumberOfBags <= 0)
+        {
+            MainLevelManager._Instance.FinishLevel(false);
+            return;
+        }
+        else if (NumberOfBags-- <= 16)
         {
             if (numberOfBagsOnRight < numberOfBagsOnLeft)
                 RemoveBagFromLeft();
             else
                 RemoveBagFromRight();
         }
-        else if (NumberOfBags < 0)
-            MainLevelManager._Instance.FinishLevel(false);
     }
 
     public void RemoveBagFromLeft()
@@ -458,6 +461,8 @@ public class Character : MonoBehaviour
         leftArm.LeanScaleY(1, 0.3f);
         leftForeArm.LeanScaleY(1f, 0.3f);
         leftBagsTransform.LeanScaleY(0.01f, 0.3f);
+        leftArmLength = 0.85f;
+        rightArmLength = 0.85f;
     }
 
     public void HitByThief(int index, bool isRight, Vector3 position)
@@ -468,8 +473,10 @@ public class Character : MonoBehaviour
         {
             for (int i = index; i < numberOfBagsOnRight; i++)
                 rightBags[i].SetActive(false);
-            NumberOfBags -= numberOfBagsOnLeft - index;
-            numberOfBagsOnRight -= numberOfBagsOnRight - index;
+            int number = numberOfBagsOnLeft - index;
+            NumberOfBags -= number;
+            rightArmLength = Mathf.Clamp(rightArmLength - 0.235f * (number), 0.85f, 100);
+            numberOfBagsOnRight -= number;
             float desiredLength = 1 + Mathf.Clamp(numberOfBagsOnRight - 1, 0, numberOfBagsOnRight) * 0.8f;
             rightArm.LeanScaleY(desiredLength, 0.3f);
             rightForeArm.LeanScaleY(1f / desiredLength, 0.3f);
@@ -480,6 +487,7 @@ public class Character : MonoBehaviour
             for (int i = index; i < numberOfBagsOnLeft; i++)
                 leftBags[i].SetActive(false);
             NumberOfBags -= numberOfBagsOnLeft - index;
+            leftArmLength = Mathf.Clamp(leftArmLength - 0.235f * (numberOfBagsOnLeft - index), 0.85f, 100);
             numberOfBagsOnLeft -= numberOfBagsOnLeft - index;
             float desiredLength = 1 + Mathf.Clamp(numberOfBagsOnLeft - 1, 0, numberOfBagsOnLeft) * 0.8f;
             leftArm.LeanScaleY(desiredLength, 0.3f);

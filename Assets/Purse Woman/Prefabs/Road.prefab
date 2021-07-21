@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7138696681908785469
 Transform:
   m_ObjectHideFlags: 0
@@ -182,12 +182,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6f54678ea7bb2a548866052463121d11, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6f54678ea7bb2a548866052463121d11, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b8a59e40fa187c4aaeadc820e07b2a7, type: 2}
+      objectReference: {fileID: 2100000, guid: 7b54b2e992ba3ef41b91f784d9b0136c, type: 2}
     - target: {fileID: 919132149155446097, guid: 6f54678ea7bb2a548866052463121d11, type: 3}
       propertyPath: m_Name
       value: UVRoad
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f54678ea7bb2a548866052463121d11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f54678ea7bb2a548866052463121d11, type: 3}

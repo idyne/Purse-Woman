@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class CollectibleBag : MonoBehaviour, ICollectible
 {
+
+    private void Start()
+    {
+        TurnManager.Instance.AddTransformToTurn(transform);
+    }
     public void GetCollected()
     {
         MainLevelManager._Instance.Character.AddBag();
         ObjectPooler.Instance.SpawnFromPool("Bag Collect Effect", transform.position + Vector3.up * 0.25f, Quaternion.identity);
         GetComponent<BoxCollider>().enabled = false;
         transform.LeanScale(Vector3.zero, 0.2f).setOnComplete(() => { Destroy(gameObject); });
+    }
+
+    private void OnDestroy()
+    {
+        TurnManager.Instance.RemoveTransformToTurn(transform);
     }
 }

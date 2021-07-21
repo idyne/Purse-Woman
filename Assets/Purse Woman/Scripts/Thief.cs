@@ -6,8 +6,14 @@ using UnityEngine;
 public class Thief : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
-    [SerializeField] private MeshAnimator meshAnimator = null;
+    //[SerializeField] private MeshAnimator meshAnimator = null;
+    private Animator anim = null;
     private bool run = false;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void HitBag(Bag bag)
     {
         GetComponent<Collider>().enabled = false;
@@ -35,7 +41,7 @@ public class Thief : MonoBehaviour
     {
         if (!run)
         {
-            meshAnimator.Play(0);
+            anim.SetTrigger("RUN");
             run = true;
             LeanTween.delayedCall(5, () => { gameObject.SetActive(false); });
         }

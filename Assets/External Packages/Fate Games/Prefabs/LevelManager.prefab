@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576889031785371690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b86ca0fc2be3614c91db65ce4e3608a, type: 3}
   m_Name: 
@@ -56,3 +56,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bb107bd6081714692bef3fabea2f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberOfCollectedGems: 0
+  GemMultiplier: 1
+  gemText: {fileID: 0}
