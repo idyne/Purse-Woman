@@ -473,7 +473,7 @@ public class Character : MonoBehaviour
         {
             for (int i = index; i < numberOfBagsOnRight; i++)
                 rightBags[i].SetActive(false);
-            int number = numberOfBagsOnLeft - index;
+            int number = numberOfBagsOnRight - index;
             NumberOfBags -= number;
             rightArmLength = Mathf.Clamp(rightArmLength - 0.235f * (number), 0.85f, 100);
             numberOfBagsOnRight -= number;
@@ -486,9 +486,10 @@ public class Character : MonoBehaviour
         {
             for (int i = index; i < numberOfBagsOnLeft; i++)
                 leftBags[i].SetActive(false);
-            NumberOfBags -= numberOfBagsOnLeft - index;
-            leftArmLength = Mathf.Clamp(leftArmLength - 0.235f * (numberOfBagsOnLeft - index), 0.85f, 100);
-            numberOfBagsOnLeft -= numberOfBagsOnLeft - index;
+            int number = numberOfBagsOnLeft - index;
+            NumberOfBags -= number;
+            leftArmLength = Mathf.Clamp(leftArmLength - 0.235f * (number), 0.85f, 100);
+            numberOfBagsOnLeft -= number;
             float desiredLength = 1 + Mathf.Clamp(numberOfBagsOnLeft - 1, 0, numberOfBagsOnLeft) * 0.8f;
             leftArm.LeanScaleY(desiredLength, 0.3f);
             leftForeArm.LeanScaleY(1f / desiredLength, 0.3f);

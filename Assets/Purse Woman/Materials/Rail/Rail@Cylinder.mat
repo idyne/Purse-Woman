@@ -139,6 +139,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineLightingType: 0
     - _OutlineLightingTypeURP: 0
+    - _OutlineMaxWidth: 1
     - _OutlineMinWidth: 1
     - _OutlinePixelSizeType: 0
     - _OutlineTextureLOD: 5
@@ -160,6 +161,7 @@ Material:
     - _RenderingMode: 0
     - _RimMax: 1.08
     - _RimMin: 0.51
+    - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -188,7 +190,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.57150114, g: 0.41799998, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 0.34117648, b: 0.34117648, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
